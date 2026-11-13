@@ -15,7 +15,11 @@ export function Rich({ text, lang }: { text: string; lang: Lang }) {
     if (m[1]) out.push(<strong key={m.index}>{m[1]}</strong>);
     else
       out.push(
-        <a key={m.index} href={m[3]} className="font-medium text-primary underline underline-offset-2">
+        <a
+          key={m.index}
+          href={m[3]}
+          className="font-medium text-primary underline underline-offset-2"
+        >
           {m[2]}
         </a>,
       );

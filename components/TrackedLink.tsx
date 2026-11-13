@@ -14,7 +14,13 @@ type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 /** Anchor that fires an analytics event (with src, lang, placement) on click. */
-export function TrackedLink({ event, lang, placement, onClick, ...rest }: Props) {
+export function TrackedLink({
+  event,
+  lang,
+  placement,
+  onClick,
+  ...rest
+}: Props) {
   return (
     <a
       {...rest}

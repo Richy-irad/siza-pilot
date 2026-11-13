@@ -18,14 +18,24 @@ export function Hero({ dict }: { dict: Dictionary }) {
         <p className="inline-flex rounded-full border border-border bg-surface px-3 py-1 text-sm font-medium text-ink-muted">
           {fmt(hero.badge, lang)}
         </p>
-        <h1 className="mt-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl">{hero.headline}</h1>
-        <p className="mt-4 max-w-[60ch] text-base text-ink-muted sm:text-lg">{hero.sub}</p>
+        <h1 className="mt-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
+          {hero.headline}
+        </h1>
+        <p className="mt-4 max-w-[60ch] text-base text-ink-muted sm:text-lg">
+          {hero.sub}
+        </p>
 
         <div className="mt-6 max-w-md">
-          <RequestButton lang={lang} placement="hero" className={`${btnPrimary} w-full py-4 text-lg`}>
+          <RequestButton
+            lang={lang}
+            placement="hero"
+            className={`${btnPrimary} w-full py-4 text-lg`}
+          >
             {hero.cta}
           </RequestButton>
-          <p className="mt-2 text-center text-sm text-ink-muted">{fmt(hero.underCta, lang)}</p>
+          <p className="mt-2 text-center text-sm text-ink-muted">
+            {fmt(hero.underCta, lang)}
+          </p>
           <div className="mt-4">
             <ContactActions dict={dict} placement="hero" />
           </div>
@@ -40,7 +50,10 @@ export function Hero({ dict }: { dict: Dictionary }) {
         <ul className="mt-5 flex flex-col gap-2 text-sm text-ink-muted sm:flex-row sm:flex-wrap sm:gap-x-5">
           {hero.trust.map((t) => (
             <li key={t} className="flex items-center gap-2">
-              <ShieldCheck className="size-4 shrink-0 text-accent" aria-hidden />
+              <ShieldCheck
+                className="size-4 shrink-0 text-accent"
+                aria-hidden
+              />
               {t}
             </li>
           ))}

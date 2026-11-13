@@ -11,7 +11,10 @@ export function HowItWorks({ dict }: { dict: Dictionary }) {
       <ol className="mt-6 grid gap-4 sm:grid-cols-3">
         {dict.how.steps.map((s, i) => (
           <li key={s.title} className={card}>
-            <span className="flex size-9 items-center justify-center rounded-full bg-primary text-base font-bold text-white" aria-hidden>
+            <span
+              className="flex size-9 items-center justify-center rounded-full bg-primary text-base font-bold text-white"
+              aria-hidden
+            >
               {i + 1}
             </span>
             <p className="mt-3">

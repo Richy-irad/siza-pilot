@@ -22,7 +22,11 @@ export function pageMetadata(
     description: dict.meta.description,
     alternates: {
       canonical: self,
-      languages: { "fr-CA": paths.fr, "en-CA": paths.en, "x-default": paths.fr },
+      languages: {
+        "fr-CA": paths.fr,
+        "en-CA": paths.en,
+        "x-default": paths.fr,
+      },
     },
     openGraph: {
       type: "website",
@@ -31,7 +35,9 @@ export function pageMetadata(
       description: dict.meta.description,
       url: self,
       locale: LOCALE[dict.lang],
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: dict.hero.headline }],
+      images: [
+        { url: "/og.png", width: 1200, height: 630, alt: dict.hero.headline },
+      ],
     },
     twitter: { card: "summary_large_image" },
     icons: { icon: "/icon.svg", apple: "/apple-icon.png" },

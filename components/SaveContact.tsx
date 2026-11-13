@@ -19,7 +19,13 @@ export function SaveContact({
   className: string;
 }) {
   return (
-    <TrackedLink href={vcardHref} event="save_contact" lang={lang} placement={placement} className={className}>
+    <TrackedLink
+      href={vcardHref}
+      event="save_contact"
+      lang={lang}
+      placement={placement}
+      className={className}
+    >
       <UserPlus className="size-5 shrink-0" aria-hidden />
       {label}
     </TrackedLink>

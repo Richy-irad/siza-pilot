@@ -15,7 +15,10 @@ export function Faq({ dict }: { dict: Dictionary }) {
           <details key={item.q} className="group">
             <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-3 px-5 py-3 font-semibold [&::-webkit-details-marker]:hidden">
               <Rich text={item.q} lang={dict.lang} />
-              <ChevronDown className="size-5 shrink-0 text-accent transition-transform group-open:rotate-180" aria-hidden />
+              <ChevronDown
+                className="size-5 shrink-0 text-accent transition-transform group-open:rotate-180"
+                aria-hidden
+              />
             </summary>
             <p className="px-5 pb-4 text-ink-muted">
               <Rich text={item.a} lang={dict.lang} />

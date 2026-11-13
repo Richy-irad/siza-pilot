@@ -12,7 +12,10 @@ declare global {
     Tally?: {
       openPopup: (
         formId: string,
-        options?: { layout?: "default" | "modal"; hiddenFields?: Record<string, string> },
+        options?: {
+          layout?: "default" | "modal";
+          hiddenFields?: Record<string, string>;
+        },
       ) => void;
     };
   }
@@ -34,7 +37,13 @@ type Props = {
  * once embed.js has loaded, the click opens the Tally popup with hidden `src` and `lang`.
  * Tracks `form_open`, or `notify_click` when `category` is set.
  */
-export function RequestButton({ lang, placement, className, children, category }: Props) {
+export function RequestButton({
+  lang,
+  placement,
+  className,
+  children,
+  category,
+}: Props) {
   const src = useSrc();
   return (
     <a
@@ -49,7 +58,10 @@ export function RequestButton({ lang, placement, className, children, category }
         if (!window.Tally?.openPopup) return;
         e.preventDefault();
         try {
-          window.Tally.openPopup(site.tally[lang], { layout: "modal", hiddenFields: { src, lang } });
+          window.Tally.openPopup(site.tally[lang], {
+            layout: "modal",
+            hiddenFields: { src, lang },
+          });
         } catch {
           window.open(tallyHref(lang, src), "_blank", "noopener");
         }

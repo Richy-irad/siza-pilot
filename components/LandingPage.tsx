@@ -19,7 +19,13 @@ import { StickyActionBar } from "./StickyActionBar";
  * @param dict copy for the page's language
  * @param altHref the landing page in the other language (for the toggle)
  */
-export function LandingPage({ dict, altHref }: { dict: Dictionary; altHref: string }) {
+export function LandingPage({
+  dict,
+  altHref,
+}: {
+  dict: Dictionary;
+  altHref: string;
+}) {
   return (
     <>
       <NoticeBanner lang={dict.lang} />

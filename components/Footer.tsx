@@ -5,7 +5,12 @@ import { site } from "@/site.config";
 /** Area, hours, phone, privacy link, copyright and the referral-service disclaimer. */
 export function Footer({ dict }: { dict: Dictionary }) {
   const { lang, footer } = dict;
-  const items = [site.name, site.area[lang], site.hours[lang], site.phoneDisplay];
+  const items = [
+    site.name,
+    site.area[lang],
+    site.hours[lang],
+    site.phoneDisplay,
+  ];
   return (
     <footer className="border-t border-border bg-surface">
       <div className={`${container} py-8 text-sm text-ink-muted`}>
@@ -13,7 +18,10 @@ export function Footer({ dict }: { dict: Dictionary }) {
           {items.map((t) => (
             <span key={t}>{t} ·</span>
           ))}
-          <a href={dict.privacyHref} className="text-primary underline underline-offset-2">
+          <a
+            href={dict.privacyHref}
+            className="text-primary underline underline-offset-2"
+          >
             {footer.privacy}
           </a>
           <span>· {footer.copyright}</span>

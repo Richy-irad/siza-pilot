@@ -35,15 +35,31 @@ export function StickyActionBar({ dict }: { dict: Dictionary }) {
       }`}
     >
       <div className="flex gap-2">
-        <TrackedLink href={telHref()} event="call_click" lang={lang} placement="sticky" className={`${btn} border border-border text-primary`}>
+        <TrackedLink
+          href={telHref()}
+          event="call_click"
+          lang={lang}
+          placement="sticky"
+          className={`${btn} border border-border text-primary`}
+        >
           <Phone className="size-5" aria-hidden />
           {sticky.call}
         </TrackedLink>
-        <TrackedLink href={smsHref(dict, src)} event="sms_click" lang={lang} placement="sticky" className={`${btn} border border-border text-primary`}>
+        <TrackedLink
+          href={smsHref(dict, src)}
+          event="sms_click"
+          lang={lang}
+          placement="sticky"
+          className={`${btn} border border-border text-primary`}
+        >
           <MessageSquare className="size-5" aria-hidden />
           {sticky.text}
         </TrackedLink>
-        <RequestButton lang={lang} placement="sticky" className={`${btn} bg-primary text-white`}>
+        <RequestButton
+          lang={lang}
+          placement="sticky"
+          className={`${btn} bg-primary text-white`}
+        >
           <ClipboardList className="size-5" aria-hidden />
           {sticky.form}
         </RequestButton>

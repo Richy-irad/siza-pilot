@@ -5,7 +5,11 @@ import type { Dictionary } from "@/content";
 import { site } from "@/site.config";
 import "@/app/globals.css";
 
-const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-inter", display: "optional" });
+const inter = Inter({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-inter",
+  display: "optional",
+});
 /** Umami loads only once a real website ID is set in site.config.ts. */
 const umamiReady = !site.umamiWebsiteId.startsWith("REPLACE");
 
@@ -13,7 +17,13 @@ const umamiReady = !site.umamiWebsiteId.startsWith("REPLACE");
  * `<html>`/`<body>` shared by the FR and EN root layouts: Inter font, mobile bottom
  * padding for the sticky bar, and the Tally + Umami scripts.
  */
-export function RootShell({ dict, children }: { dict: Dictionary; children: ReactNode }) {
+export function RootShell({
+  dict,
+  children,
+}: {
+  dict: Dictionary;
+  children: ReactNode;
+}) {
   return (
     <html lang={dict.htmlLang} className={`${inter.variable} antialiased`}>
       <body className="min-h-dvh pb-24 font-sans sm:pb-0">

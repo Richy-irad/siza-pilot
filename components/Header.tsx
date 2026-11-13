@@ -10,10 +10,22 @@ import { TrackedLink } from "./TrackedLink";
  * Top bar: logo (home link), FR | EN toggle and a small call button.
  * @param altHref the same page in the other language
  */
-export function Header({ dict, altHref }: { dict: Dictionary; altHref: string }) {
+export function Header({
+  dict,
+  altHref,
+}: {
+  dict: Dictionary;
+  altHref: string;
+}) {
   return (
-    <header className={`${container} flex items-center justify-between gap-3 py-3`}>
-      <a href={dict.home} aria-label={dict.header.homeLabel} className="rounded-xl">
+    <header
+      className={`${container} flex items-center justify-between gap-3 py-3`}
+    >
+      <a
+        href={dict.home}
+        aria-label={dict.header.homeLabel}
+        className="rounded-xl"
+      >
         <Logo />
       </a>
       <div className="flex items-center gap-2">

@@ -16,7 +16,10 @@ export function NoticeBanner({ lang }: { lang: Lang }) {
   );
   if (!notice || expired) return null;
   return (
-    <div role="status" className="bg-primary-hover px-4 py-2 text-center text-sm font-medium text-white">
+    <div
+      role="status"
+      className="bg-primary-hover px-4 py-2 text-center text-sm font-medium text-white"
+    >
       {notice[lang]}
     </div>
   );

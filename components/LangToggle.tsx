@@ -8,19 +8,31 @@ import type { Lang } from "@/site.config";
 const noop = () => () => {};
 /** Display order: French always first. */
 const LANGS: Lang[] = ["fr", "en"];
-const cell = "flex min-h-12 min-w-12 items-center justify-center px-3 first:rounded-l-xl last:rounded-r-xl";
+const cell =
+  "flex min-h-12 min-w-12 items-center justify-center px-3 first:rounded-l-xl last:rounded-r-xl";
 
 /**
  * FR | EN toggle that keeps the query string (and so `?src=`). Tracks `lang_switch`.
  * @param href the current page in the other language
  */
 export function LangToggle({ dict, href }: { dict: Dictionary; href: string }) {
-  const search = useSyncExternalStore(noop, () => window.location.search, () => "");
+  const search = useSyncExternalStore(
+    noop,
+    () => window.location.search,
+    () => "",
+  );
   return (
-    <nav aria-label={dict.langSwitch.navLabel} className="flex rounded-xl border border-border bg-surface text-sm font-semibold">
+    <nav
+      aria-label={dict.langSwitch.navLabel}
+      className="flex rounded-xl border border-border bg-surface text-sm font-semibold"
+    >
       {LANGS.map((l) =>
         l === dict.lang ? (
-          <span key={l} aria-current="page" className={`${cell} bg-bg text-ink`}>
+          <span
+            key={l}
+            aria-current="page"
+            className={`${cell} bg-bg text-ink`}
+          >
             {l.toUpperCase()}
           </span>
         ) : (

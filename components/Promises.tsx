@@ -1,4 +1,9 @@
-import { BadgeCheck, CircleDollarSign, PhoneCall, ShieldCheck } from "lucide-react";
+import {
+  BadgeCheck,
+  CircleDollarSign,
+  PhoneCall,
+  ShieldCheck,
+} from "lucide-react";
 import type { Dictionary } from "@/content";
 import { card, container, h2 } from "@/lib/ui";
 
