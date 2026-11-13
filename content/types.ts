@@ -1,11 +1,17 @@
 import type { CategoryId, Lang } from "@/site.config";
 
-// Copy strings may contain `**bold**`, `[label](href)` and `{placeholder}` tokens
-// ({area}, {hours}, {responseWindow}, {phoneDisplay}, {email}); see lib/format.ts.
+/**
+ * Shape shared by every language's copy. Strings may contain `**bold**`, `[label](href)`
+ * and `{placeholder}` tokens ({area}, {hours}, {responseWindow}, {phoneDisplay}, {email});
+ * see lib/format.ts and components/Rich.tsx.
+ */
 export type Dictionary = {
   lang: Lang;
+  /** Value for `<html lang>`. */
   htmlLang: "fr-CA" | "en-CA";
+  /** Landing page path in this language. */
   home: string;
+  /** Privacy notice path in this language. */
   privacyHref: string;
   meta: { title: string; description: string; privacyTitle: string };
   langSwitch: { navLabel: string; ariaLabel: string };
@@ -19,7 +25,9 @@ export type Dictionary = {
     save: string;
     trust: string[];
   };
+  /** Contact button labels; `smsPrefill` starts SMS/WhatsApp messages. */
   contact: { call: string; text: string; whatsapp: string; smsPrefill: string };
+  /** 911 strip; `**bold**` part renders in the danger colour. */
   safety: string;
   services: {
     heading: string;
@@ -27,7 +35,9 @@ export type Dictionary = {
     soon: string;
     getHelp: string;
     notify: string;
+    /** Per-category copy; roadside uses the boost wording. */
     items: Record<CategoryId, { title: string; desc: string }>;
+    /** Roadside copy used when `site.roadsideIncludesBoost` is false. */
     roadsideTowing: { title: string; desc: string };
   };
   how: { heading: string; steps: { title: string; body: string }[] };
@@ -38,6 +48,7 @@ export type Dictionary = {
   final: { heading: string; save: string; cta: string };
   provider: { lead: string; strong: string; call: string; or: string; email: string };
   footer: { privacy: string; copyright: string; disclaimer: string };
+  /** Mobile sticky bar labels. */
   sticky: { call: string; text: string; form: string };
   privacy: { title: string; items: { label: string; body: string }[]; back: string };
 };

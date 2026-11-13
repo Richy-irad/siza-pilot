@@ -1,5 +1,6 @@
 import type { Dictionary } from "./types";
 
+/** English copy (translation of `fr`). */
 export const en: Dictionary = {
   lang: "en",
   htmlLang: "en-CA",

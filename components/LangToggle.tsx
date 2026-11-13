@@ -6,10 +6,14 @@ import { track } from "@/lib/track";
 import type { Lang } from "@/site.config";
 
 const noop = () => () => {};
+/** Display order: French always first. */
 const LANGS: Lang[] = ["fr", "en"];
 const cell = "flex min-h-12 min-w-12 items-center justify-center px-3 first:rounded-l-xl last:rounded-r-xl";
 
-/** FR | EN toggle that keeps the query string (and so ?src=). */
+/**
+ * FR | EN toggle that keeps the query string (and so `?src=`). Tracks `lang_switch`.
+ * @param href the current page in the other language
+ */
 export function LangToggle({ dict, href }: { dict: Dictionary; href: string }) {
   const search = useSyncExternalStore(noop, () => window.location.search, () => "");
   return (

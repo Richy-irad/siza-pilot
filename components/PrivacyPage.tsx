@@ -4,6 +4,10 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Rich } from "./Rich";
 
+/**
+ * Privacy notice layout shared by `/confidentialite` and `/en/privacy`.
+ * @param altHref the privacy page in the other language
+ */
 export function PrivacyPage({ dict, altHref }: { dict: Dictionary; altHref: string }) {
   const { privacy, lang } = dict;
   return (

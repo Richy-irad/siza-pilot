@@ -2,6 +2,7 @@ import type { Dictionary } from "@/content";
 import { container } from "@/lib/ui";
 import { site } from "@/site.config";
 
+/** Area, hours, phone, privacy link, copyright and the referral-service disclaimer. */
 export function Footer({ dict }: { dict: Dictionary }) {
   const { lang, footer } = dict;
   const items = [site.name, site.area[lang], site.hours[lang], site.phoneDisplay];

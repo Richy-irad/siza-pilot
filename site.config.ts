@@ -1,3 +1,7 @@
+/**
+ * Single source of truth for operational facts: contact info, form IDs, hours,
+ * area and which categories are live. Edit here, then redeploy.
+ */
 export const site = {
   name: "Siza",
   domain: "https://REPLACE.ca", // decide BEFORE flyers are printed
@@ -22,6 +26,9 @@ export const site = {
   notice: null as null | { fr: string; en: string; until: string }, // e.g. holiday hours; until = "YYYY-MM-DD"
 } as const;
 
+/** Supported languages; `fr` is the default at `/`. */
 export type Lang = "fr" | "en";
+/** Category ids from `site.categories`. */
 export type CategoryId = (typeof site.categories)[number]["id"];
+/** `live` = request CTA; `soon` = notify-me CTA. */
 export type CategoryStatus = "live" | "soon";

@@ -6,8 +6,10 @@ import { track, type EventName } from "@/lib/track";
 import type { Lang } from "@/site.config";
 
 type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
+  /** Event fired on click. */
   event: EventName;
   lang: Lang;
+  /** Where the link sits on the page (hero, header, sticky…). */
   placement: string;
 };
 

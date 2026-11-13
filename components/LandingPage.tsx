@@ -14,6 +14,11 @@ import { SafetyStrip } from "./SafetyStrip";
 import { Services } from "./Services";
 import { StickyActionBar } from "./StickyActionBar";
 
+/**
+ * Full landing page, shared by `/` and `/en`.
+ * @param dict copy for the page's language
+ * @param altHref the landing page in the other language (for the toggle)
+ */
 export function LandingPage({ dict, altHref }: { dict: Dictionary; altHref: string }) {
   return (
     <>

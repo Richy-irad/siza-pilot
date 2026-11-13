@@ -5,6 +5,7 @@ import { ContactActions } from "./ContactActions";
 import { RequestButton } from "./RequestButton";
 import { SaveContact } from "./SaveContact";
 
+/** Closing card: save-contact (primary here), request form, then call/text/WhatsApp. */
 export function FinalCta({ dict }: { dict: Dictionary }) {
   const { final, lang } = dict;
   return (

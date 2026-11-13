@@ -1,11 +1,14 @@
+/** Event properties sent to Umami. */
 type Props = Record<string, string | number | boolean>;
 
 declare global {
   interface Window {
+    /** Umami tracker, present once its script has loaded. */
     umami?: { track: (name: string, data?: Props) => void };
   }
 }
 
+/** Analytics events from PLAN.md §7.5. */
 export type EventName =
   | "form_open"
   | "call_click"

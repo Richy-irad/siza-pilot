@@ -1,8 +1,9 @@
 import { expect, test, type Page } from "@playwright/test";
 
+/** Sample source from the QR scheme in PLAN.md. */
 const SRC = "board-iga-laval";
 
-// Stub Umami + Tally, block real third-party scripts, and keep tel:/sms:/wa links from navigating.
+/** Stubs Umami + Tally, blocks real third-party scripts, and keeps tel:/sms:/wa links from navigating. */
 async function instrument(page: Page) {
   await page.route(/tally\.so|umami\.is/, (r) => r.abort());
   await page.addInitScript(() => {
@@ -14,6 +15,7 @@ async function instrument(page: Page) {
     window.addEventListener("click", (e) => e.preventDefault());
   });
 }
+/** Analytics events recorded by the Umami stub, in order. */
 const events = (page: Page) => page.evaluate(() => (window as unknown as { __events: [string, Record<string, string>][] }).__events);
 
 test("both locales load with correct lang and h1", async ({ page }) => {

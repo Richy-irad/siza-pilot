@@ -6,7 +6,10 @@ import { smsHref, telHref, waHref } from "@/lib/links";
 import { useSrc } from "@/lib/src";
 import { TrackedLink } from "./TrackedLink";
 
-/** Call / Text / WhatsApp row. */
+/**
+ * Call / Text / WhatsApp buttons. SMS and WhatsApp messages are prefilled with `Ref: {src}`.
+ * @param placement sent with each click event
+ */
 export function ContactActions({ dict, placement }: { dict: Dictionary; placement: string }) {
   const src = useSrc();
   const { lang, contact } = dict;

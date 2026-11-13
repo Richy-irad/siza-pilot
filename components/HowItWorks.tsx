@@ -1,6 +1,7 @@
 import type { Dictionary } from "@/content";
 import { card, container, h2 } from "@/lib/ui";
 
+/** "How it works": three numbered steps from `dict.how`. */
 export function HowItWorks({ dict }: { dict: Dictionary }) {
   return (
     <section className={`${container} py-10 sm:py-14`} aria-labelledby="how-h">

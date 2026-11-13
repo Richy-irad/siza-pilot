@@ -6,6 +6,10 @@ import { ContactActions } from "./ContactActions";
 import { RequestButton } from "./RequestButton";
 import { SaveContact } from "./SaveContact";
 
+/**
+ * Above-the-fold block: pilot badge, headline, primary form CTA, contact row,
+ * save-contact link and trust line. Its `#hero` id drives the sticky action bar.
+ */
 export function Hero({ dict }: { dict: Dictionary }) {
   const { hero, lang } = dict;
   return (

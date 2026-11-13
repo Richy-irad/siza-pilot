@@ -1,5 +1,6 @@
 import { site, type Lang } from "@/site.config";
 
+/** Placeholder values for one language. */
 const vars = (lang: Lang): Record<string, string> => ({
   area: site.area[lang],
   hours: site.hours[lang],

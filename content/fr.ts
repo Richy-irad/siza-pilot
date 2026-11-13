@@ -1,5 +1,6 @@
 import type { Dictionary } from "./types";
 
+/** French copy (source of truth; PLAN.md §8). */
 export const fr: Dictionary = {
   lang: "fr",
   htmlLang: "fr-CA",

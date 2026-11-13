@@ -4,6 +4,7 @@ import { btnPrimary, btnSecondary, card, container, h2 } from "@/lib/ui";
 import { site, type CategoryId, type CategoryStatus } from "@/site.config";
 import { RequestButton } from "./RequestButton";
 
+/** Icon(s) per category; heating shows both Flame and Snowflake. */
 const ICONS: Record<CategoryId, LucideIcon[]> = {
   roadside: [Truck],
   heating: [Flame, Snowflake],
@@ -12,6 +13,11 @@ const ICONS: Record<CategoryId, LucideIcon[]> = {
   flooding: [Droplets],
 };
 
+/**
+ * Category cards rendered from `site.categories`, live first.
+ * Live → "Available" badge + form button; soon → "Coming soon" badge + notify button
+ * (same form, tracked as `notify_click`). Roadside copy follows `site.roadsideIncludesBoost`.
+ */
 export function Services({ dict }: { dict: Dictionary }) {
   const { services, lang } = dict;
   const categories = [...site.categories]

@@ -1,6 +1,7 @@
 import type { Dictionary } from "@/content";
 import { card, container, h2 } from "@/lib/ui";
 
+/** Founder quote explaining why Siza exists. */
 export function FounderStory({ dict }: { dict: Dictionary }) {
   return (
     <section className={`${container} py-10 sm:py-14`} aria-labelledby="founder-h">

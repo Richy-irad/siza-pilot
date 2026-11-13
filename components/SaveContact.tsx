@@ -3,6 +3,10 @@ import { vcardHref } from "@/lib/links";
 import type { Lang } from "@/site.config";
 import { TrackedLink } from "./TrackedLink";
 
+/**
+ * Link to `/siza.vcf` (adds Siza to phone contacts); tracked as `save_contact`.
+ * @param placement sent with the event
+ */
 export function SaveContact({
   lang,
   placement,

@@ -3,6 +3,7 @@ import type { Dictionary } from "@/content";
 import { container, h2 } from "@/lib/ui";
 import { Rich } from "./Rich";
 
+/** FAQ accordion using native `<details>`, so it works without JavaScript. */
 export function Faq({ dict }: { dict: Dictionary }) {
   return (
     <section className={`${container} py-10 sm:py-14`} aria-labelledby="faq-h">

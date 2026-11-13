@@ -2,8 +2,10 @@ import { BadgeCheck, CircleDollarSign, PhoneCall, ShieldCheck } from "lucide-rea
 import type { Dictionary } from "@/content";
 import { card, container, h2 } from "@/lib/ui";
 
+/** Icons for the four promise cards, in `dict.why.items` order. */
 const ICONS = [PhoneCall, CircleDollarSign, BadgeCheck, ShieldCheck];
 
+/** "Why Siza": four promise cards from `dict.why`. */
 export function Promises({ dict }: { dict: Dictionary }) {
   return (
     <section className={`${container} py-10 sm:py-14`} aria-labelledby="why-h">

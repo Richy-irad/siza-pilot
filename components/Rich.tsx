@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { fmt } from "@/lib/format";
 import type { Lang } from "@/site.config";
 
+/** Matches `**bold**` or `[label](href)`. */
 const TOKEN = /\*\*(.+?)\*\*|\[(.+?)\]\((.+?)\)/g;
 
 /** Renders a copy string: fills {placeholders}, `**bold**` and `[label](href)`. */

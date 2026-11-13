@@ -8,6 +8,7 @@ import { site, type Lang } from "@/site.config";
 
 declare global {
   interface Window {
+    /** Tally embed.js API (loaded lazily). */
     Tally?: {
       openPopup: (
         formId: string,
@@ -18,7 +19,9 @@ declare global {
 }
 
 type Props = {
+  /** Picks the FR or EN Tally form. */
   lang: Lang;
+  /** Where the button sits (hero / services / final / sticky), sent with `form_open`. */
   placement: string;
   className: string;
   children: ReactNode;
@@ -26,7 +29,11 @@ type Props = {
   category?: string;
 };
 
-/** Real link to the Tally form; enhanced into the Tally popup once embed.js loads. */
+/**
+ * Opens the request form. Renders a real link to the Tally form (works without JS);
+ * once embed.js has loaded, the click opens the Tally popup with hidden `src` and `lang`.
+ * Tracks `form_open`, or `notify_click` when `category` is set.
+ */
 export function RequestButton({ lang, placement, className, children, category }: Props) {
   const src = useSrc();
   return (

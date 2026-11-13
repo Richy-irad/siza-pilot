@@ -6,7 +6,10 @@ import { LangToggle } from "./LangToggle";
 import { Logo } from "./Logo";
 import { TrackedLink } from "./TrackedLink";
 
-/** `altHref`: the same page in the other language. */
+/**
+ * Top bar: logo (home link), FR | EN toggle and a small call button.
+ * @param altHref the same page in the other language
+ */
 export function Header({ dict, altHref }: { dict: Dictionary; altHref: string }) {
   return (
     <header className={`${container} flex items-center justify-between gap-3 py-3`}>

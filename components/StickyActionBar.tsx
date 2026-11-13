@@ -8,6 +8,7 @@ import { useSrc } from "@/lib/src";
 import { RequestButton } from "./RequestButton";
 import { TrackedLink } from "./TrackedLink";
 
+/** Equal-width stacked icon + label button. */
 const btn =
   "flex min-h-12 flex-1 flex-col items-center justify-center gap-0.5 rounded-xl text-sm font-semibold";
 

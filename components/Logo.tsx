@@ -1,5 +1,6 @@
 import { ShieldCheck } from "lucide-react";
 
+/** Navy rounded tile with a white ShieldCheck, followed by "Siza". */
 export function Logo() {
   return (
     <span className="flex items-center gap-2">

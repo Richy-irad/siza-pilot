@@ -2,6 +2,7 @@ import { Info } from "lucide-react";
 import type { Dictionary } from "@/content";
 import { card, container } from "@/lib/ui";
 
+/** Honest reminder that insurer/CAA roadside assistance is often free. */
 export function InsuranceNote({ dict }: { dict: Dictionary }) {
   return (
     <aside className={container}>

@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+/** Serves `/siza.vcf` as `text/vcard` so phones open the add-contact sheet. */
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,

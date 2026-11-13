@@ -4,8 +4,10 @@ import { container } from "@/lib/ui";
 import { site } from "@/site.config";
 import { TrackedLink } from "./TrackedLink";
 
+/** Inline text-link style. */
 const link = "font-semibold text-primary underline underline-offset-2";
 
+/** Small recruiting note for providers, with call and email links. */
 export function ProviderStrip({ dict }: { dict: Dictionary }) {
   const { provider, lang } = dict;
   return (

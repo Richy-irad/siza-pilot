@@ -3,6 +3,7 @@ import type { Dictionary } from "@/content";
 import { container } from "@/lib/ui";
 import { Rich } from "./Rich";
 
+/** 911 notice shown directly under the hero; Siza is not an emergency service. */
 export function SafetyStrip({ dict }: { dict: Dictionary }) {
   return (
     <aside className={container}>
