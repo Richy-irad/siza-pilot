@@ -7,13 +7,13 @@ export const fr: Dictionary = {
   home: "/",
   privacyHref: "/confidentialite",
   meta: {
-    title: "Siza — On vous trouve de l'aide, vite | Montréal et Laval",
+    title: "Tachaide — On vous trouve de l'aide, vite | Montréal et Laval",
     description:
-      "Panne d'auto, porte verrouillée, plus de chauffage? Un vrai humain trouve un fournisseur vérifié disponible et vous confirme le prix avant son arrivée. Aucuns frais Siza.",
-    privacyTitle: "Politique de confidentialité | Siza",
+      "Panne d'auto, porte verrouillée, plus de chauffage? Un vrai humain trouve un fournisseur vérifié disponible et vous confirme le prix avant son arrivée. Aucuns frais Tachaide.",
+    privacyTitle: "Politique de confidentialité | Tachaide",
   },
   langSwitch: { navLabel: "Langue", ariaLabel: "EN — English version" },
-  header: { call: "Appeler", homeLabel: "Siza, accueil" },
+  header: { call: "Appeler", homeLabel: "Tachaide, accueil" },
   hero: {
     badge: "Projet pilote · {area} · {hours}",
     headline: "Coincé? On vous trouve de l'aide — vite.",
@@ -24,17 +24,17 @@ export const fr: Dictionary = {
     trust: [
       "Fournisseurs locaux vérifiés",
       "Vous payez le fournisseur directement",
-      "Aucuns frais Siza",
+      "Aucuns frais Tachaide",
     ],
   },
   contact: {
     call: "Appeler",
     text: "Texto",
     whatsapp: "WhatsApp",
-    smsPrefill: "Bonjour Siza, j'ai besoin d'aide pour : ",
+    smsPrefill: "Bonjour Tachaide, j'ai besoin d'aide pour : ",
   },
   safety:
-    "Quelqu'un est en danger, odeur de gaz, ou accident avec blessés? **Composez le 911 d'abord.** Siza n'est pas un service d'urgence.",
+    "Quelqu'un est en danger, odeur de gaz, ou accident avec blessés? **Composez le 911 d'abord.** Tachaide n'est pas un service d'urgence.",
   services: {
     heading: "Ce qu'on couvre en ce moment",
     available: "Disponible",
@@ -80,7 +80,7 @@ export const fr: Dictionary = {
     ],
   },
   why: {
-    heading: "Pourquoi Siza",
+    heading: "Pourquoi Tachaide",
     items: [
       {
         title: "On appelle pour vous.",
@@ -105,9 +105,9 @@ export const fr: Dictionary = {
     body: "On vous le rappellera : votre assureur ou CAA-Québec est souvent votre option gratuite. Si vous préférez choisir votre garage ou éviter une réclamation, on s'occupe du reste.",
   },
   founder: {
-    heading: "Pourquoi Siza existe",
+    heading: "Pourquoi Tachaide existe",
     quote:
-      "« Récemment, en route vers le garage, mon tuyau d'échappement s'est détaché. J'ai attendu une dépanneuse une heure et demie et payé 350 $, sans connaître le prix avant son arrivée. Siza, c'est ce que j'aurais voulu ce jour-là : quelqu'un qui appelle pour moi, trouve qui est disponible et me confirme le prix d'avance. »",
+      "« Récemment, en route vers le garage, mon tuyau d'échappement s'est détaché. J'ai attendu une dépanneuse une heure et demie et payé 350 $, sans connaître le prix avant son arrivée. Tachaide, c'est ce que j'aurais voulu ce jour-là : quelqu'un qui appelle pour moi, trouve qui est disponible et me confirme le prix d'avance. »",
     name: "Richard, fondateur · Vaudreuil-Dorion",
   },
   faq: {
@@ -115,7 +115,7 @@ export const fr: Dictionary = {
     items: [
       {
         q: "Combien ça coûte?",
-        a: "Siza ne vous facture rien pendant le projet pilote. Vous payez seulement le fournisseur, au prix confirmé avant son déplacement.",
+        a: "Tachaide ne vous facture rien pendant le projet pilote. Vous payez seulement le fournisseur, au prix confirmé avant son déplacement.",
       },
       {
         q: "C'est une application?",
@@ -135,7 +135,7 @@ export const fr: Dictionary = {
       },
       {
         q: "Comment je paie?",
-        a: "Directement au fournisseur, selon ses modes de paiement (virement Interac, comptant ou carte). Siza ne touche jamais à votre argent.",
+        a: "Directement au fournisseur, selon ses modes de paiement (virement Interac, comptant ou carte). Tachaide ne touche jamais à votre argent.",
       },
       {
         q: "Et si personne n'est disponible?",
@@ -161,9 +161,9 @@ export const fr: Dictionary = {
   },
   footer: {
     privacy: "Politique de confidentialité",
-    copyright: "© 2026 Siza",
+    copyright: "© 2026 Tachaide",
     disclaimer:
-      "Siza est un service de mise en relation. Les travaux sont réalisés et facturés par des fournisseurs indépendants.",
+      "Tachaide est un service de mise en relation. Les travaux sont réalisés et facturés par des fournisseurs indépendants.",
   },
   sticky: { call: "Appeler", text: "Texto", form: "Formulaire" },
   privacy: {

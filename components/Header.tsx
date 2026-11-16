@@ -19,7 +19,7 @@ export function Header({
 }) {
   return (
     <header
-      className={`${container} flex items-center justify-between gap-3 py-3`}
+      className={`${container} flex items-center justify-between gap-2 py-3`}
     >
       <a
         href={dict.home}
@@ -35,10 +35,11 @@ export function Header({
           event="call_click"
           lang={dict.lang}
           placement="header"
-          className={`${btnPrimary} px-4 text-sm`}
+          className={`${btnPrimary} min-w-12 px-3 text-sm sm:px-4`}
         >
-          <Phone className="size-4" aria-hidden />
-          {dict.header.call}
+          <Phone className="size-5 sm:size-4" aria-hidden />
+          {/* Icon-only on phones so the header fits at 320px; hero and sticky bar carry labeled Call buttons. */}
+          <span className="sr-only sm:not-sr-only">{dict.header.call}</span>
         </TrackedLink>
       </div>
     </header>

@@ -4,7 +4,7 @@ import type { Lang } from "@/site.config";
 import { TrackedLink } from "./TrackedLink";
 
 /**
- * Link to `/siza.vcf` (adds Siza to phone contacts); tracked as `save_contact`.
+ * Link to `/tachaide.vcf` (adds Tachaide to phone contacts); tracked as `save_contact`.
  * @param placement sent with the event
  */
 export function SaveContact({

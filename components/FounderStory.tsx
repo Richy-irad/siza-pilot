@@ -1,7 +1,7 @@
 import type { Dictionary } from "@/content";
 import { card, container, h2 } from "@/lib/ui";
 
-/** Founder quote explaining why Siza exists. */
+/** Founder quote explaining why Tachaide exists. */
 export function FounderStory({ dict }: { dict: Dictionary }) {
   return (
     <section

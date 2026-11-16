@@ -3,11 +3,11 @@ import type { Dictionary } from "@/content";
 import { container } from "@/lib/ui";
 import { Rich } from "./Rich";
 
-/** 911 notice shown directly under the hero; Siza is not an emergency service. */
+/** 911 notice shown directly under the hero; Tachaide is not an emergency service. */
 export function SafetyStrip({ dict }: { dict: Dictionary }) {
   return (
     <aside className={container}>
-      <p className="flex gap-3 rounded-2xl border border-border bg-surface p-4 text-sm text-ink sm:text-base">
+      <p className="flex gap-3 rounded-2xl border border-border bg-amber-100 p-4 text-sm text-ink sm:text-base">
         <TriangleAlert
           className="mt-0.5 size-5 shrink-0 text-danger"
           aria-hidden

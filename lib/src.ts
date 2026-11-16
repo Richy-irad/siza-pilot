@@ -3,7 +3,7 @@
 import { useSyncExternalStore } from "react";
 
 /** sessionStorage key holding the visit's source. */
-const KEY = "siza_src";
+const KEY = "tachaide_src";
 /** Allowed `src` values: lowercase letters, digits, dashes; max 60 chars. */
 const VALID = /^[a-z0-9-]{1,60}$/;
 /** In-memory copy; also the fallback when sessionStorage throws (private mode). */

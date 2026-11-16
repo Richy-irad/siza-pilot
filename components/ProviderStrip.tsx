@@ -12,7 +12,7 @@ export function ProviderStrip({ dict }: { dict: Dictionary }) {
   const { provider, lang } = dict;
   return (
     <aside className={`${container} pb-8`}>
-      <p className="rounded-2xl border border-dashed border-border bg-surface/60 p-4 text-sm text-ink-muted">
+      <p className="rounded-2xl border border-dashed border-border bg-emerald-100 p-4 text-sm text-ink-muted">
         {provider.lead} <strong className="text-ink">{provider.strong}</strong>{" "}
         →{" "}
         <TrackedLink

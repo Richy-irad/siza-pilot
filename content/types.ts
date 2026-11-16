@@ -46,9 +46,19 @@ export type Dictionary = {
   founder: { heading: string; quote: string; name: string };
   faq: { heading: string; items: { q: string; a: string }[] };
   final: { heading: string; save: string; cta: string };
-  provider: { lead: string; strong: string; call: string; or: string; email: string };
+  provider: {
+    lead: string;
+    strong: string;
+    call: string;
+    or: string;
+    email: string;
+  };
   footer: { privacy: string; copyright: string; disclaimer: string };
   /** Mobile sticky bar labels. */
   sticky: { call: string; text: string; form: string };
-  privacy: { title: string; items: { label: string; body: string }[]; back: string };
+  privacy: {
+    title: string;
+    items: { label: string; body: string }[];
+    back: string;
+  };
 };

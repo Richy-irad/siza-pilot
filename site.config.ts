@@ -3,13 +3,18 @@
  * area and which categories are live. Edit here, then redeploy.
  */
 export const site = {
-  name: "Siza",
+  name: "Tachaide",
   domain: "https://REPLACE.ca", // decide BEFORE flyers are printed
-  phoneE164: "+1REPLACE", // calls + texts
-  phoneDisplay: "(514) REPLACE",
-  whatsappE164: "+1REPLACE", // can be the same number (WhatsApp Business)
+  phoneE164: "+15144315748", // calls + texts
+  phoneDisplay: "(514) 431-5748",
+  whatsappE164: null as string | null, // null hides WhatsApp buttons; e.g. "+15144315748" to show them
   email: "REPLACE@REPLACE", // privacy contact + providers
-  tally: { fr: "REPLACE_FR_FORM_ID", en: "REPLACE_EN_FORM_ID" },
+  // Form IDs only: the part after tally.so/r/
+  tally: {
+    fr: "D4GZ2E", // request form
+    en: "D4GZ2E",
+    notify: "2jAeEe" as string | null, // shared "notify me" form for soon categories; null → request form
+  },
   umamiWebsiteId: "REPLACE_UMAMI_ID", // Umami Cloud → Settings → Websites
   hours: { fr: "lun.–sam., 8 h à 21 h", en: "Mon–Sat, 8 a.m.–9 p.m." },
   responseWindow: { fr: "moins de 30 minutes", en: "under 30 minutes" },
@@ -18,7 +23,7 @@ export const site = {
   categories: [
     { id: "roadside", status: "live" }, // "Roadside" or "Towing" wording decided by Nov 16 (see content)
     { id: "heating", status: "soon" },
-    { id: "locksmith", status: "soon" },
+    { id: "locksmith", status: "live" },
     { id: "plumbing", status: "soon" },
     { id: "flooding", status: "soon" },
   ],

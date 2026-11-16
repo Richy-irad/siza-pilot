@@ -1,7 +1,11 @@
 import { expect, test, type Page } from "@playwright/test";
+import { site } from "../site.config";
 
 /** Sample source from the QR scheme in PLAN.md. */
 const SRC = "board-iga-laval";
+/** Category ids by status, in page order (config order within each group). */
+const live = site.categories.filter((c) => c.status === "live").map((c) => c.id);
+const soon = site.categories.filter((c) => c.status !== "live").map((c) => c.id);
 
 /** Stubs Umami + Tally, blocks real third-party scripts, and keeps tel:/sms:/wa links from navigating. */
 async function instrument(page: Page) {
@@ -66,9 +70,9 @@ test("contact hrefs carry src, and src survives language switch", async ({
       `^sms:\\+1.*\\?&body=.*${encodeURIComponent(`(Ref: ${SRC})`).replace(/[()]/g, "\\$&")}`,
     ),
   );
-  await expect(hero.getByRole("link", { name: "WhatsApp" })).toHaveAttribute(
-    "href",
-    /^https:\/\/wa\.me\/\d*\?text=.*Ref%3A%20board-iga-laval/,
+  // WhatsApp is hidden while site.whatsappE164 is null
+  await expect(hero.getByRole("link", { name: "WhatsApp" })).toHaveCount(
+    site.whatsappE164 ? 1 : 0,
   );
   await expect(hero.getByRole("link", { name: /Dites-nous/ })).toHaveAttribute(
     "href",
@@ -104,31 +108,40 @@ test("form opens Tally popup with hidden fields; events fire once with src; no c
   const hero = page.locator("#hero");
 
   await hero.getByRole("link", { name: /Tell us/ }).click();
+  await page.getByRole("link", { name: "Get help" }).first().click();
+  await page.getByRole("link", { name: "Notify me" }).first().click();
   const popups = await page.evaluate(
     () => (window as unknown as { __popups: unknown[] }).__popups,
   );
+  const fields = { src: SRC, lang: "en" };
   expect(popups).toEqual([
+    [site.tally.en, { layout: "modal", hiddenFields: fields }],
     [
-      "REPLACE_EN_FORM_ID",
-      { layout: "modal", hiddenFields: { src: SRC, lang: "en" } },
+      site.tally.en,
+      { layout: "modal", hiddenFields: { ...fields, category: live[0] } },
+    ],
+    [
+      site.tally.notify ?? site.tally.en,
+      { layout: "modal", hiddenFields: { ...fields, category: soon[0] } },
     ],
   ]);
 
   await hero.getByRole("link", { name: "Call" }).click();
   await hero.getByRole("link", { name: "Text" }).click();
-  await hero.getByRole("link", { name: "WhatsApp" }).click();
   await hero.getByRole("link", { name: /Save our number/ }).click();
-  await page.getByRole("link", { name: "Notify me" }).first().click();
   await page.getByRole("link", { name: "Version française" }).click();
 
   const base = { src: SRC, lang: "en", placement: "hero" };
   expect(await events(page)).toEqual([
     ["form_open", base],
+    [
+      "form_open",
+      { src: SRC, lang: "en", placement: "services", category: live[0] },
+    ],
+    ["notify_click", { src: SRC, lang: "en", category: soon[0] }],
     ["call_click", base],
     ["sms_click", base],
-    ["whatsapp_click", base],
     ["save_contact", base],
-    ["notify_click", { src: SRC, lang: "en", category: "heating" }],
     ["lang_switch", { from: "en", to: "fr" }],
   ]);
   expect(await context.cookies()).toEqual([]);
@@ -145,15 +158,25 @@ test("sticky bar appears after hero scrolls away", async ({ page }) => {
 
 test("only live categories get a request button", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByText("Disponible", { exact: true })).toHaveCount(1);
+  await expect(page.getByText("Disponible", { exact: true })).toHaveCount(
+    live.length,
+  );
   await expect(
     page.getByRole("link", { name: "Demander de l'aide" }),
-  ).toHaveCount(1);
-  await expect(page.getByRole("link", { name: "M'aviser" })).toHaveCount(4);
+  ).toHaveCount(live.length);
+  const notify = page.getByRole("link", { name: "M'aviser" });
+  await expect(notify).toHaveCount(soon.length);
+  // No-JS fallback link targets the notify form (or request form) with the category
+  await expect(notify.first()).toHaveAttribute(
+    "href",
+    new RegExp(
+      `tally\\.so/r/${site.tally.notify ?? site.tally.fr}\\?src=direct&lang=fr&category=${soon[0]}`,
+    ),
+  );
 });
 
 test("vCard served as text/vcard", async ({ request }) => {
-  const res = await request.get("/siza.vcf");
+  const res = await request.get("/tachaide.vcf");
   expect(res.headers()["content-type"]).toContain("text/vcard");
   expect(await res.text()).toContain("BEGIN:VCARD");
 });

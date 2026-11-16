@@ -7,13 +7,13 @@ export const en: Dictionary = {
   home: "/en",
   privacyHref: "/en/privacy",
   meta: {
-    title: "Siza — We find you help, fast | Montreal & Laval",
+    title: "Tachaide — We find you help, fast | Montreal & Laval",
     description:
-      "Car won't start, locked out, no heat? A real person finds an available vetted provider and confirms the price before they come. No Siza fee.",
-    privacyTitle: "Privacy notice | Siza",
+      "Car won't start, locked out, no heat? A real person finds an available vetted provider and confirms the price before they come. No Tachaide fee.",
+    privacyTitle: "Privacy notice | Tachaide",
   },
   langSwitch: { navLabel: "Language", ariaLabel: "FR — Version française" },
-  header: { call: "Call", homeLabel: "Siza, home" },
+  header: { call: "Call", homeLabel: "Tachaide, home" },
   hero: {
     badge: "Pilot project · {area} · {hours}",
     headline: "Stuck? We'll find you help — fast.",
@@ -21,16 +21,16 @@ export const en: Dictionary = {
     cta: "Tell us what's happening →",
     underCta: "90-second form · reply in {responseWindow} during our hours",
     save: "Save our number — so it's there the day you need it",
-    trust: ["Vetted local providers", "You pay the provider directly", "No Siza fee"],
+    trust: ["Vetted local providers", "You pay the provider directly", "No Tachaide fee"],
   },
   contact: {
     call: "Call",
     text: "Text",
     whatsapp: "WhatsApp",
-    smsPrefill: "Hi Siza, I need help with: ",
+    smsPrefill: "Hi Tachaide, I need help with: ",
   },
   safety:
-    "Someone in danger, smell of gas, or an accident with injuries? **Call 911 first.** Siza is not an emergency service.",
+    "Someone in danger, smell of gas, or an accident with injuries? **Call 911 first.** Tachaide is not an emergency service.",
   services: {
     heading: "What we cover right now",
     available: "Available",
@@ -67,7 +67,7 @@ export const en: Dictionary = {
     ],
   },
   why: {
-    heading: "Why Siza",
+    heading: "Why Tachaide",
     items: [
       { title: "We make the calls.", body: "No more dialing five numbers that don't pick up." },
       {
@@ -89,9 +89,9 @@ export const en: Dictionary = {
     body: "We'll remind you: your insurer or CAA is often your free option. If you'd rather choose your garage or avoid a claim, we'll handle the rest.",
   },
   founder: {
-    heading: "Why Siza exists",
+    heading: "Why Tachaide exists",
     quote:
-      "“Recently, on my way to the garage, my exhaust pipe came loose. I waited an hour and a half for a tow truck and paid $350, without knowing the price until it arrived. Siza is what I wish I'd had that day: someone who makes the calls, finds who's available, and confirms the price up front.”",
+      "“Recently, on my way to the garage, my exhaust pipe came loose. I waited an hour and a half for a tow truck and paid $350, without knowing the price until it arrived. Tachaide is what I wish I'd had that day: someone who makes the calls, finds who's available, and confirms the price up front.”",
     name: "Richard, founder · Vaudreuil-Dorion",
   },
   faq: {
@@ -99,7 +99,7 @@ export const en: Dictionary = {
     items: [
       {
         q: "How much does it cost?",
-        a: "Siza charges you nothing during the pilot. You only pay the provider, at the price confirmed before they come.",
+        a: "Tachaide charges you nothing during the pilot. You only pay the provider, at the price confirmed before they come.",
       },
       {
         q: "Is this an app?",
@@ -119,7 +119,7 @@ export const en: Dictionary = {
       },
       {
         q: "How do I pay?",
-        a: "Directly to the provider, using their payment methods (Interac e-Transfer, cash or card). Siza never handles your money.",
+        a: "Directly to the provider, using their payment methods (Interac e-Transfer, cash or card). Tachaide never handles your money.",
       },
       {
         q: "What if no one is available?",
@@ -145,9 +145,9 @@ export const en: Dictionary = {
   },
   footer: {
     privacy: "Privacy notice",
-    copyright: "© 2026 Siza",
+    copyright: "© 2026 Tachaide",
     disclaimer:
-      "Siza is a referral service. Work is performed and billed by independent providers.",
+      "Tachaide is a referral service. Work is performed and billed by independent providers.",
   },
   sticky: { call: "Call", text: "Text", form: "Form" },
   privacy: {

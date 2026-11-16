@@ -24,7 +24,7 @@ const ICONS: Record<CategoryId, LucideIcon[]> = {
 /**
  * Category cards rendered from `site.categories`, live first.
  * Live → "Available" badge + form button; soon → "Coming soon" badge + notify button
- * (same form, tracked as `notify_click`). Roadside copy follows `site.roadsideIncludesBoost`.
+ * (notify form, tracked as `notify_click`). Roadside copy follows `site.roadsideIncludesBoost`.
  */
 export function Services({ dict }: { dict: Dictionary }) {
   const { services, lang } = dict;
@@ -75,7 +75,8 @@ export function Services({ dict }: { dict: Dictionary }) {
               <RequestButton
                 lang={lang}
                 placement="services"
-                category={live ? undefined : id}
+                category={id}
+                notify={!live}
                 className={`${live ? btnPrimary : btnSecondary} mt-4 w-full`}
               >
                 {live ? services.getHelp : services.notify}

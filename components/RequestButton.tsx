@@ -1,25 +1,10 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { tallyHref } from "@/lib/links";
+import type { MouseEvent, ReactNode } from "react";
 import { getSrc, useSrc } from "@/lib/src";
+import { openTallyPopup, tallyHref } from "@/lib/tally";
 import { track } from "@/lib/track";
-import { site, type Lang } from "@/site.config";
-
-declare global {
-  interface Window {
-    /** Tally embed.js API (loaded lazily). */
-    Tally?: {
-      openPopup: (
-        formId: string,
-        options?: {
-          layout?: "default" | "modal";
-          hiddenFields?: Record<string, string>;
-        },
-      ) => void;
-    };
-  }
-}
+import type { CategoryId, Lang } from "@/site.config";
 
 type Props = {
   /** Picks the FR or EN Tally form. */
@@ -28,14 +13,18 @@ type Props = {
   placement: string;
   className: string;
   children: ReactNode;
-  /** Set for "soon" categories: tracks notify_click instead of form_open. */
-  category?: string;
+  /** Category of the card the button sits on; sent to Tally and analytics. */
+  category?: CategoryId;
+  /** Soon category: opens the notify form (if configured) and tracks `notify_click`. */
+  notify?: boolean;
 };
 
 /**
- * Opens the request form. Renders a real link to the Tally form (works without JS);
- * once embed.js has loaded, the click opens the Tally popup with hidden `src` and `lang`.
- * Tracks `form_open`, or `notify_click` when `category` is set.
+ * Opens a Tally form: the request form, or the notify form when `notify` is set
+ * (falls back to the request form until `site.tally.notify` is configured).
+ * Renders a real link to the form (works without JS); once embed.js has loaded, the
+ * click opens the Tally popup with hidden `src`, `lang` and `category`.
+ * Tracks `notify_click` or `form_open`.
  */
 export function RequestButton({
   lang,
@@ -43,29 +32,32 @@ export function RequestButton({
   className,
   children,
   category,
+  notify,
 }: Props) {
   const src = useSrc();
+  const opts = { notify, category };
+
+  /** Tracks the click, then opens the popup; the link opens normally if Tally isn't loaded. */
+  function handleClick(e: MouseEvent<HTMLAnchorElement>) {
+    const src = getSrc(); // read at click time, not the pre-hydration value
+    if (notify) track("notify_click", { src, lang, category: category ?? "" });
+    else
+      track("form_open", {
+        src,
+        lang,
+        placement,
+        ...(category && { category }),
+      });
+    if (openTallyPopup(lang, src, opts)) e.preventDefault();
+  }
+
   return (
     <a
-      href={tallyHref(lang, src)}
+      href={tallyHref(lang, src, opts)}
       target="_blank"
       rel="noopener"
       className={className}
-      onClick={(e) => {
-        const src = getSrc();
-        if (category) track("notify_click", { src, lang, category });
-        else track("form_open", { src, lang, placement });
-        if (!window.Tally?.openPopup) return;
-        e.preventDefault();
-        try {
-          window.Tally.openPopup(site.tally[lang], {
-            layout: "modal",
-            hiddenFields: { src, lang },
-          });
-        } catch {
-          window.open(tallyHref(lang, src), "_blank", "noopener");
-        }
-      }}
+      onClick={handleClick}
     >
       {children}
     </a>

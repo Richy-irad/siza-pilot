@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-/** Serves `/siza.vcf` as `text/vcard` so phones open the add-contact sheet. */
+/** Serves `/tachaide.vcf` as `text/vcard` so phones open the add-contact sheet. */
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
@@ -15,10 +15,10 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/siza.vcf",
+        source: "/tachaide.vcf",
         headers: [
           { key: "Content-Type", value: "text/vcard; charset=utf-8" },
-          { key: "Content-Disposition", value: 'inline; filename="siza.vcf"' },
+          { key: "Content-Disposition", value: 'inline; filename="tachaide.vcf"' },
         ],
       },
     ];
