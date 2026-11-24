@@ -8,7 +8,7 @@ export const site = {
   phoneE164: "+15144315748", // calls + texts
   phoneDisplay: "(514) 431-5748",
   whatsappE164: null as string | null, // null hides WhatsApp buttons; e.g. "+15144315748" to show them
-  email: "richard.iradukunda@tachaide.com", // privacy contact + providers
+  email: "hello@tachaide.com", // privacy contact + providers
   // Form IDs only: the part after tally.so/r/
   tally: {
     fr: "D4GZ2E", // request form
