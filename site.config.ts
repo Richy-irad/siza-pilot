@@ -27,7 +27,7 @@ export const site = {
     { id: "plumbing", status: "soon" },
     { id: "flooding", status: "soon" },
   ],
-  roadsideIncludesBoost: true, // false → show "Towing" copy variant only
+  roadsideIncludesBoost: false, // false → show "Towing" copy variant only
   notice: null as null | { fr: string; en: string; until: string }, // e.g. holiday hours; until = "YYYY-MM-DD"
 } as const;
 
